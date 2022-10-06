@@ -10,7 +10,7 @@ const productSchema = new Schema({
     require: [true, "La descripcion es requerida"],
   },
   price: {
-    type: Number,
+    type: String,
   },
   image: {
     type: String,
@@ -21,7 +21,7 @@ const productSchema = new Schema({
 interface IProduct extends Document {
   name: string;
   description: string;
-  price: number;
+  price: string;
   image: string;
 }
 

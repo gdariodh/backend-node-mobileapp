@@ -12,7 +12,7 @@ const productSchema = new mongoose_1.Schema({
         require: [true, "La descripcion es requerida"],
     },
     price: {
-        type: Number,
+        type: String,
     },
     image: {
         type: String,
