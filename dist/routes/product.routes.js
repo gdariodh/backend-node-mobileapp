@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const defaultRoutes = (0, express_1.Router)();
-defaultRoutes.get('/', (req, res) => {
+const route = (0, express_1.Router)();
+route.get('/', (req, res) => {
     return res.json({
-        message: 'hada'
+        product: 'zapatillas'
     });
 });
-exports.default = defaultRoutes;
+exports.default = route;

@@ -4,7 +4,7 @@ const defaultRoutes = Router()
 
 defaultRoutes.get('/', (req:Request, res: Response) => {
   return res.json({
-    message: 'holiixddd'
+    message: 'hada'
   })
 })
 
