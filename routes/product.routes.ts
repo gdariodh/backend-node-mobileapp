@@ -83,4 +83,19 @@ route.delete("/", async (req: Request, res: Response) => {
   });
 });
 
+route.get("/paging", async (req: Request, res: Response) => {
+  let perPage = 5;
+  let page = Number(req.query.page) || 1;
+  let skip = page - 1;
+  skip = skip * perPage;
+
+  const products = await Product.find().skip(skip).limit(perPage);
+
+  return res.json({
+    ok: true,
+    msg: "Ok paging",
+    products,
+  });
+});
+
 export default route;

@@ -77,4 +77,16 @@ route.delete("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         productDeleted,
     });
 }));
+route.get("/paging", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let perPage = 5;
+    let page = Number(req.query.page) || 1;
+    let skip = page - 1;
+    skip = skip * perPage;
+    const products = yield product_model_1.Product.find().skip(skip).limit(perPage);
+    return res.json({
+        ok: true,
+        msg: "Ok paging",
+        products,
+    });
+}));
 exports.default = route;
