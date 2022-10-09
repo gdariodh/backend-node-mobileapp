@@ -52,7 +52,29 @@ route.put("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield product_model_1.Product.findByIdAndUpdate(productId, product);
     return res.json({
         ok: true,
-        msg: "producto actualizado"
+        msg: "producto actualizado gg",
+    });
+}));
+route.delete("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const productId = req.query.id;
+    if (!productId) {
+        return res.json({
+            ok: false,
+            msg: "no existe id",
+        });
+    }
+    const productDb = yield product_model_1.Product.findById(productId);
+    if (!productDb) {
+        return res.json({
+            ok: false,
+            msg: "no existe un producto con ese id",
+        });
+    }
+    const productDeleted = yield product_model_1.Product.findByIdAndDelete(productId);
+    return res.json({
+        ok: true,
+        msg: "Delete ok",
+        productDeleted,
     });
 }));
 exports.default = route;

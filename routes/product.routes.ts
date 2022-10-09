@@ -47,11 +47,39 @@ route.put("/:id", async (req: Request, res: Response) => {
     price: body.price,
   };
 
-   await Product.findByIdAndUpdate(productId, product);
+  await Product.findByIdAndUpdate(productId, product);
 
   return res.json({
     ok: true,
-    msg: "producto actualizado"
+    msg: "producto actualizado gg",
+  });
+});
+
+route.delete("/", async (req: Request, res: Response) => {
+  const productId = req.query.id;
+
+  if (!productId) {
+    return res.json({
+      ok: false,
+      msg: "no existe id",
+    });
+  }
+
+  const productDb = await Product.findById(productId);
+
+  if (!productDb) {
+    return res.json({
+      ok: false,
+      msg: "no existe un producto con ese id",
+    });
+  }
+
+  const productDeleted = await Product.findByIdAndDelete(productId);
+
+  return res.json({
+    ok: true,
+    msg: "Delete ok",
+    productDeleted,
   });
 });
 
