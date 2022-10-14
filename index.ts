@@ -13,7 +13,7 @@ server.app.use('/', defaultRoutes)
 server.app.use('/product', productRoutes)
 
 
-mongoose.connect('mongodb://localhost:27017/backend-mobile-ionic', (error) => {
+mongoose.connect('mongodb+srv://user:123@cluster0.6hztveh.mongodb.net/?retryWrites=true&w=majority', (error) => {
     if(error){
         throw error
     }

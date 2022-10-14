@@ -13,7 +13,7 @@ server.app.use(body_parser_1.default.json());
 server.app.use(body_parser_1.default.urlencoded({ extended: true }));
 server.app.use('/', default_routes_1.default);
 server.app.use('/product', product_routes_1.default);
-mongoose_1.default.connect('mongodb://localhost:27017/backend-mobile-ionic', (error) => {
+mongoose_1.default.connect('mongodb+srv://user:123@cluster0.6hztveh.mongodb.net/?retryWrites=true&w=majority', (error) => {
     if (error) {
         throw error;
     }
